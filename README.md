@@ -16,7 +16,7 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 
 ## Roadmap
 
-- [ ] SECOM CSV ingestion pipeline (`/api/sensor-readings`)
+- [x] SECOM CSV ingestion pipeline (`/api/sensor-readings`)
 - [ ] Validation (missing value handling, range checks)
 - [ ] Offline model training with Smile
 - [ ] Prediction endpoint (`/api/predict`)
