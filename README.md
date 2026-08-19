@@ -7,7 +7,7 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 ## Planned Tech Stack
 
 - **Backend:** Java, Spring Boot
-- **Storage:** PostgreSQL (prod) / H2 (local/dev)
+- **Storage:** PostgreSQL (dev/prod)
 - **ML:** Smile (pure Java ML library — Random Forest / Logistic Regression)
 - **Dataset:** SECOM (UCI ML Repository)
 - **Live updates:** Server-Sent Events (Spring `SseEmitter`)
