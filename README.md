@@ -22,7 +22,7 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 - [ ] Prediction endpoint (`/api/predict`)
 - [ ] Scheduled batch scoring (streaming-style simulation)
 - [ ] Unit tests (happy path)
-- [ ] Architecture, sequence, and user diagrams
+- [x] Architecture, sequence, and user diagrams
 - [ ] Full API documentation
 - [ ] Live event stream (`/api/events/stream`, SSE)
 - [ ] React dashboard — live pass/fail counter
