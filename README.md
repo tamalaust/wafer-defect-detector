@@ -21,7 +21,7 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 - [ ] Offline model training with Smile
 - [ ] Prediction endpoint (`/api/predict`)
 - [ ] Scheduled batch scoring (streaming-style simulation)
-- [x] Unit tests (happy path)
+- [ ] Unit tests (happy path)
 - [x] Architecture, sequence, and user diagrams
 - [ ] Full API documentation
 - [ ] Live event stream (`/api/events/stream`, SSE)
