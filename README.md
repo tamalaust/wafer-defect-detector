@@ -37,4 +37,4 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 
 ## Status
 
-Currently in early development — Week 1 (ingestion & validation). Star/watch this repo for updates.
+Currently in development.
