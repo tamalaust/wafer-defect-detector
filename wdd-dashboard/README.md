@@ -67,6 +67,9 @@ happening:
   static screenshot — a number visibly changing each second is harder to mistake for a
   frozen page than ambient CSS motion.
 
+  <img width="796" height="803" alt="Screenshot 2026-08-22 at 5 43 31 PM" src="https://github.com/user-attachments/assets/b68004a9-321e-4773-b1b8-4cb6d648f504" />
+
+
 **Accuracy note:** the countdown approximates the backend's `wdd.batch.interval-ms`
 (default 5s) but isn't a true sync — Spring's `@Scheduled(fixedDelay=...)` measures from
 when the *previous* tick finished, not a fixed clock, and the frontend has no way to
