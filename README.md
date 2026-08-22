@@ -2,7 +2,7 @@
 
 Semiconductor wafer pass/fail classification service — ingestion, validation, and scoring pipeline for SECOM sensor data, built Java-heavy with in-JVM ML (no Python microservice).
 
-> 🚧 **Work in Progress** — actively being built. Full API documentation, architecture diagrams, and setup instructions coming soon.
+ 🚧 **Work in Progress**
 
 ## Planned Tech Stack
 
@@ -35,6 +35,3 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
   counts until new events arrive. Not addressed in the current scope; may be revisited in
   future development.
 
-## Status
-
-Currently in development.
