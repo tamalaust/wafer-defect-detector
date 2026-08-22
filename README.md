@@ -11,8 +11,7 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 - **ML:** Smile (pure Java ML library — Random Forest / Logistic Regression)
 - **Dataset:** SECOM (UCI ML Repository)
 - **Live updates:** Server-Sent Events (Spring `SseEmitter`)
-- **Dashboard:** React + Recharts/Chart.js — live pass/fail counter, scrolling prediction feed, confidence histogram
-- **Deployment:** Docker, Docker Compose, Kubernetes
+- **Dashboard:** React  — live pass/fail counter, scrolling prediction feed, confidence histogram
 
 ## Roadmap
 
@@ -27,7 +26,6 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 - [x] Live event stream (`/api/events/stream`, SSE)
 - [x] React dashboard — live pass/fail counter
 - [x] React dashboard — scrolling feed + confidence histogram
-- [ ] Dockerized deployment (Docker Compose)
 
 ## Known Limitations
 
