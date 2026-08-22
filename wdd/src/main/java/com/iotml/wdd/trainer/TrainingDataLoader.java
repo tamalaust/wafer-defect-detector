@@ -28,7 +28,7 @@ public class TrainingDataLoader {
         this.connection = connection;
     }
 
-    public List<TrainingRow> load() throws SQLException {
+    public LoadResult load() throws SQLException {
         int featureCount = findMaxFeatureIndex();
         Map<Integer, Double> featureMeans = computeFeatureMeans();
         List<ReadingHeader> readings = findLabeledReadings();
@@ -39,7 +39,7 @@ public class TrainingDataLoader {
             rows.add(new TrainingRow(header.waferId(), header.label(), vector));
         }
 
-        return rows;
+        return new LoadResult(rows, featureMeans, featureCount);
     }
 
     private int findMaxFeatureIndex() throws SQLException {
@@ -123,5 +123,13 @@ public class TrainingDataLoader {
     }
 
     private record ReadingHeader(long id, String waferId, int label) {
+    }
+
+    /**
+     * featureMeans is exposed (not just consumed internally) because the
+     * predict path needs the exact same means used at training time, not a
+     * freshly recomputed set - see ModelBundle's javadoc for why.
+     */
+    public record LoadResult(List<TrainingRow> rows, Map<Integer, Double> featureMeans, int featureCount) {
     }
 }

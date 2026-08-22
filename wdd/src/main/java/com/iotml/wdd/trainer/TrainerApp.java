@@ -1,12 +1,13 @@
 package com.iotml.wdd.trainer;
 
+import com.iotml.wdd.model.ModelBundle;
+import com.iotml.wdd.model.ModelPersistence;
 import smile.classification.RandomForest;
 
 import java.nio.file.Path;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  * Run directly (e.g. via IDE "Run" on this class) - a plain main(), does not
@@ -16,8 +17,9 @@ import java.util.List;
  * Spring app uses (spring.datasource.url/username/password) via
  * DbConfigLoader - no separate config to maintain.
  *
- * Model artifact is written to models/wafer-defect-rf-v1.model, relative to
- * the project root (same location data/ lives).
+ * Model artifact (model + training-time feature means, bundled together) is
+ * written to models/wafer-defect-rf-v1.model, relative to the project root
+ * (same location data/ lives).
  */
 public class TrainerApp {
 
@@ -33,16 +35,19 @@ public class TrainerApp {
                 dbConfig.url(), dbConfig.user(), dbConfig.password())) {
 
             TrainingDataLoader loader = new TrainingDataLoader(connection);
-            List<TrainingRow> rows = loader.load();
-            System.out.println("Loaded " + rows.size() + " labeled readings.");
+            TrainingDataLoader.LoadResult loadResult = loader.load();
+            System.out.println("Loaded " + loadResult.rows().size() + " labeled readings.");
 
             ModelTrainer trainer = new ModelTrainer();
-            RandomForest model = trainer.train(rows);
+            RandomForest model = trainer.train(loadResult.rows());
             System.out.println("Training complete.");
             System.out.println(model.metrics());
 
+            ModelBundle bundle = new ModelBundle(
+                    model, loadResult.featureMeans(), loadResult.featureCount());
+
             ModelPersistence persistence = new ModelPersistence();
-            persistence.save(model, MODEL_OUTPUT_PATH);
+            persistence.save(bundle, MODEL_OUTPUT_PATH);
             System.out.println("Model saved to " + MODEL_OUTPUT_PATH.toAbsolutePath());
 
         } catch (Exception e) {

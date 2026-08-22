@@ -19,14 +19,14 @@ Semiconductor wafer pass/fail classification service — ingestion, validation, 
 - [x] SECOM CSV ingestion pipeline (`/api/sensor-readings`)
 - [x] Validation (missing value handling, range checks)
 - [x] Offline model training with Smile
-- [ ] Prediction endpoint (`/api/predict`)
-- [ ] Scheduled batch scoring (streaming-style simulation)
+- [x] Prediction endpoint (`/api/predict`)
+- [x] Scheduled batch scoring (streaming-style simulation)
 - [ ] Unit tests (happy path)
 - [x] Architecture, sequence, and user diagrams
 - [ ] Full API documentation
-- [ ] Live event stream (`/api/events/stream`, SSE)
-- [ ] React dashboard — live pass/fail counter
-- [ ] React dashboard — scrolling feed + confidence histogram
+- [x] Live event stream (`/api/events/stream`, SSE)
+- [x] React dashboard — live pass/fail counter
+- [x] React dashboard — scrolling feed + confidence histogram
 - [ ] Dockerized deployment (Docker Compose)
 
 ## Known Limitations
